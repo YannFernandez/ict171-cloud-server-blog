@@ -84,5 +84,7 @@ Run it regularly.
 
 ## Author
 Yann Fernandez Puig
+
 Student at Murdoch University
+
 Email: 35608158@student.murdoch.edu.au
