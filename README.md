@@ -138,6 +138,9 @@ Run it regularly.
   During SSL setup, Certbot didn’t find a vhost for `www.yfpblog.com`.  
   → **Selected `yfpblog.com`** and added a redirect manually later if needed.
 
+## 📹 Video Explainer  
+[Watch here](https://youtu.be/uVg-Nxgs-BM)
+
 ## Author
 Yann Fernandez Puig
 
