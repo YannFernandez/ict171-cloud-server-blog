@@ -3,7 +3,7 @@
 ## Overview
 This repository contains the files and documentation for a blog website deployed on an AWS EC2 instance using Apache. The project covers the setup of a cloud server environment, deployment of a static blog, and basic server configuration.
 
-EC2 Public IP: e.g., 3.27.119.95
+EC2 Public IP: 3.27.119.95
 
 Domain name: yfpblog.com
 
@@ -112,6 +112,24 @@ Make it executable:
 chmod +x update-server.sh
 ```
 Run it regularly.
+
+## Troubleshooting
+
+- **SSH Connection Issue**  
+  Initially, I couldn’t SSH into my EC2 instance because the **Security Group had a restricted IP** that wasn’t mine.  
+  → **Fixed** by updating the Security Group’s inbound rule to allow SSH (port 22) from **my current IP address**.
+
+- **Website Not Loading**  
+  After installing Apache and uploading my blog, the website didn't load.  
+  → **Solution**: Restarted Apache using `sudo systemctl restart apache2` and checked file permissions with `chown` and `chmod`.
+
+- **Slow DNS Propagation**  
+  After purchasing a domain and setting DNS records, the website didn’t work immediately.  
+  → **Fixed** after waiting ~30 minutes for **DNS propagation** to complete.
+
+- **Let’s Encrypt Certbot Prompt**  
+  During SSL setup, Certbot didn’t find a vhost for `www.yfpblog.com`.  
+  → **Selected `yfpblog.com`** and added a redirect manually later if needed.
 
 ## Author
 Yann Fernandez Puig
