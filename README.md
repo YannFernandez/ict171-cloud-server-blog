@@ -51,20 +51,46 @@ This repository contains the files and documentation for a blog website deployed
     sudo systemctl restart apache2
 
 ## How to link a domain name
-- Purchase a domain name from a registar
-- Configure DNS to point the domain to your EC2 instance’s public IP.
-- Optionally update Apache configuration to serve your domain.
+1.  Purchase a domain name from a registar
+2.  In your domain registrar, update the A record to point to your EC2 instance’s public IP
+3.  Wait for DNS propagation (usually takes a few minutes)
+4.  Update Apache config if needed for your domain
 
-## How to Enable SSL/TLS with Let’s Encrypt
-1.  Install Certbot and the Apache plugin:
+## Security Group / Firewall Configuration
+
+To ensure your EC2 instance is accessible and secure, the following inbound ports must be open in the Security Group associated with your instance:
+
+- **Port 22 (SSH):**  
+  Allows you to securely connect to your server via SSH.  
+  **Recommendation:** Restrict access to your own IP address only to improve security.
+
+- **Port 80 (HTTP):**  
+  Allows public access to your website over the standard web protocol.  
+  **Configuration:** Open to all IPs (`0.0.0.0/0`) to allow everyone to view your blog.
+
+- **Port 443 (HTTPS):**  
+  Used for secure, encrypted web traffic (SSL/TLS).  
+  **Note:** This port can be opened when you have configured an SSL certificate. For now, this is optional and can remain closed until SSL is set up.
+
+Verify these rules in your AWS EC2 Console under **Security Groups > Inbound Rules** and document the exact settings applied.
+
+### How to enable SSL/TLS Setup with Let's Encrypt
+
+For securing your website with HTTPS, you can use **Let’s Encrypt**, a free Certificate Authority that issues SSL/TLS certificates. The process involves:
+
+1. Installing Certbot, the automated tool for Let’s Encrypt:  
+   ```bash
+   sudo apt install certbot python3-certbot-apache -y
+
+2.  Install Apache plugin:
     ```bash
     sudo apt install certbot python3-certbot-apache -y
 
-2.  Obtain and install SSL certificate for your domain:
+3.  Run Certbot with your domain:
     ```bash
-    sudo certbot --apache -d yourdomain.com
+    sudo certbot --apache -d yfpblog.com -d www.yfpblog.com
 
-3. Certbot will automatically configure Apache for HTTPS.
+4.  Certbot automatically configures HTTPS for your site.
 
 ## Server update and Maintenance Script
 Use this script to update your server and restart Apache:
