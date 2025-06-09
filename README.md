@@ -3,6 +3,11 @@
 ## Overview
 This repository contains the files and documentation for a blog website deployed on an AWS EC2 instance using Apache. The project covers the setup of a cloud server environment, deployment of a static blog, and basic server configuration.
 
+EC2 Public IP: e.g., 3.27.119.95
+
+Domain name: yfpblog.com
+
+
 ## Project Contents
 - Blog website files (HTML, CSS, images)
 - Server configuration commands and scripts
