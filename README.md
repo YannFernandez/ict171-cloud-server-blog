@@ -68,19 +68,19 @@ This repository contains the files and documentation for a blog website deployed
 
 ## Server update and Maintenance Script
 Use this script to update your server and restart Apache:
-    ```bash
-    #!/bin/bash
-    # Update server packages and restart Apache web server
-    sudo apt update && sudo apt upgrade -y
-    sudo systemctl restart apache2
+```bash
+#!/bin/bash
+# Update server packages and restart Apache web server
+sudo apt update && sudo apt upgrade -y
+sudo systemctl restart apache2
+```
 
 Save this script (e.g., update-server.sh)
 Make it executable:
-    ```bash
-    chmod +x update-server.sh
+```bash
+chmod +x update-server.sh
+```
 Run it regularly.
-
-
 
 ## Author
 Yann Fernandez Puig
