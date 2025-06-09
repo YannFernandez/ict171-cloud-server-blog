@@ -7,12 +7,19 @@ EC2 Public IP: 3.27.119.95
 
 Domain name: yfpblog.com
 
-
 ## Project Contents
 - Blog website files (HTML, CSS, images)
 - Server configuration commands and scripts
 - Documentation of the setup process
 - Bash script for server updates and Apache restart
+
+## Prerequisites
+
+- Ubuntu 22.04 (or another supported Linux distribution) / macOS / Windows with WSL  
+- SSH access to your AWS EC2 instance with sudo privileges  
+- An SSH key pair (.pem file) for connecting to the server
+- A domain name pointing to your EC2 instance’s public IP *(optional, required for SSL/TLS)*  
+- Basic familiarity with Linux command line and AWS Management Console  
 
 ## How to Create EC2 Instance
 1. Log in to the AWS Management Console.
